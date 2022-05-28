@@ -58,10 +58,10 @@ def get_price(ticker: str, listing_date: dt.datetime, withdrawal_date: dt.dateti
 def convert_date(date: str):
     date = date.split('-')
         
-    if int(date[1]) > 10:
+    if int(date[1]) < 10:
         date[1] = date[1][1:]
         
-    if int(date[2]) > 10:
+    if int(date[2]) < 10:
         date[2] = date[2][1:]
 
     date = [int(nr) for nr in date]
@@ -111,7 +111,3 @@ if __name__ == "__main__":
     
     #plot_prices(prices)
     print(prices)
-        
-    #TODO go through all pages of listings not only first one
-    #TODO setup to continously run via cloud
-    #TODO combine with email notification
